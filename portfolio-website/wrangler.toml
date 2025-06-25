@@ -1,0 +1,15 @@
+name = "portfolio-website"
+compatibility_date = "2024-12-20"
+
+[build]
+command = "npm run build"
+cwd = "."
+
+[[build.upload]]
+format = "service-worker"
+
+[env.production]
+name = "portfolio-website-production"
+
+[env.preview]
+name = "portfolio-website-preview"
