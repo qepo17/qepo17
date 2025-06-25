@@ -15,7 +15,7 @@ I'm a backend engineer with 4+ years of experience building distributed systems 
 
 - 🌍 Website: [taufiqseptryana.com](https://taufiqseptryana.com)
 - 💼 LinkedIn: [taufiqseptryana](https://linkedin.com/in/taufiqseptryana)
-- 🐦 Twitter: [@taufiqseptryana](https://twitter.com/taufiqseptryana)
+- 🐦 Twitter: [@taufiqseptryana](https://twitter.com/qepo_s)
 
 ---
 
