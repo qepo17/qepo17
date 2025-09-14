@@ -19,4 +19,8 @@ I'm a backend engineer with 4+ years of experience building distributed systems 
 
 ---
 
+## Projects
+
+- QepoAI: [qepoai.ngod.ing](qepoai.ngod.ing)
+
 ⭐️ From [qepo17](https://github.com/qepo17)
