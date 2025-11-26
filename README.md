@@ -5,7 +5,7 @@
 
 ## 🚀 About Me
 
-I'm a backend engineer with 4+ years of experience building distributed systems and microservices. Currently working at **Shippit** as a Senior Software Engineer, focusing on Ruby on Rails and TypeScript applications.
+I'm a backend engineer with 5+ years of experience building distributed systems and microservices. Currently working at **Shippit** as a Senior Software Engineer, focusing on Ruby on Rails and TypeScript applications.
 
 - 🔭 Currently working on logistics and shipping solutions
 - 📝 Writing blog posts about software engineering
