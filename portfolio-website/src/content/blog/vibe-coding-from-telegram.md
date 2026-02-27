@@ -1,7 +1,8 @@
 ---
-title: Vibe Coding from Telegram - My Setup with Claude Opus and OpenClaw
+title: 'Vibe Coding from Telegram: It Actually Works'
 description: Building software through Telegram chat with Claude Opus and OpenClaw. An AI-first workflow where PRs show up on GitHub from phone conversations.
-pubDate: 2026-02-26T00:00:00Z
+pubDate: 2026-02-27T00:00:00Z
+heroImage: '/assets/images/posts/openclaw.png'
 tags: ['ai', 'coding', 'workflow', 'openclaw']
 ---
 
@@ -24,7 +25,26 @@ Here's how it works:
 
 The data stays in Koin. No files hanging around.
 
+## The Workflow
+
+![Kodi](/assets/images/posts/kodi-koin.png)
+![Kodi](/assets/images/posts/kodi-koin-2.png)
+
+So what does building look like?
+
+- Ask the agent to build or fix something
+- It writes code, creates a PR
+- I review
+- Ask for changes if needed
+- Tell it to merge
+
+All through chat. Git, commits, PR descriptions — the agent handles it. I just talk.
+
+I'm impressed.
+
 ## Testing It
+
+![Claudia](/assets/images/posts/claudia-koin.png)
 
 So for testing, I used another agent in the same OpenClaw instance as Kodi — one called Claudia.
 
@@ -38,24 +58,16 @@ I made Claudia specifically to manage my finances, so she's the one I threw the 
 
 ## Embrace the Slop
 
-I get it, the codebase is probably full of slop. But to build and ship things fast, at a certain level, you need to embrace the slop.
+Look, I get it, the codebase is probably full of slop. But to build and ship things fast, at a certain level, you need to embrace the slop.
 
 I minimize it by putting guardrails in the CI — lint, build, test. Sometimes I spawn another AI agent to review the PR before I manually review it.
 
-That said, I only do this for projects where I think it's safe to get slop-ed by AI.
-
-## The Workflow
-
-What surprised me was how solid the loop is:
-
-- Ask the agent to build something
-- It writes code, creates a PR
-- I review
-- Ask for changes if needed
-- Tell it to merge
-
-All through chat. Git, commits, PR descriptions — the agent handles it. I just talk.
+That said, I only do this for projects where I think it's safe to get slopped by AI. I understand the concerns of OpenClaw and full-vibecoding, hence I am not doing it (yet) for work-related projects.
 
 ## vs Cloud Agents
 
-I tried Codex before. Reliable, isolated, but slow. Might revisit since they've probably improved. For now, OpenClaw feels snappier.
+I tried Codex back in August 2025. Reliable and well-sandboxed, but slow as hell. The biggest issue was the feedback loop — you submit a task, wait, and hope it got things right. If it didn't, you submit again. There's no real conversation.
+
+With OpenClaw, I'm talking to the agent in real-time. I can course-correct mid-task, give extra context, or tell it to stop and try a different approach. That back-and-forth is what makes it feel like pair programming rather than a ticket queue.
+
+Cloud agents probably have their place for well-defined, isolated tasks. Codex might have improved since I last tried it, I might need to revisit at some point. But for now, I'm happy with OpenClaw. It's surprisingly seamless to just talk to an agent and watch code ship.
