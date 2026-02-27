@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content';
+
+const allTils = await getCollection('til');
+const sortedTils = allTils
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+function formatYear(date: Date) {
+  return date.getFullYear().toString();
+}
+
+const categoryColors: Record<string, string> = {
+  ai: 'bg-purple-100 text-purple-700',
+  coding: 'bg-blue-100 text-blue-700',
+  research: 'bg-green-100 text-green-700',
+  life: 'bg-yellow-100 text-yellow-700',
+  tools: 'bg-orange-100 text-orange-700',
+};
+
+const categoryEmoji: Record<string, string> = {
+  ai: '🤖',
+  coding: '💻',
+  research: '🔬',
+  life: '🌱',
+  tools: '🛠️',
+};
+---
+
+<div class="relative">
+  <!-- Timeline line -->
+  <div class="absolute left-0 md:left-24 top-0 bottom-0 w-px bg-neutral-200"></div>
+  
+  <div class="space-y-8">
+    {sortedTils.map((til) => (
+      <article class="relative pl-8 md:pl-36">
+        <!-- Date badge -->
+        <div class="absolute left-0 md:left-0 top-0 w-20 text-right hidden md:block">
+          <div class="text-sm font-medium text-neutral-600">
+            {formatDate(til.data.date)}
+          </div>
+          <div class="text-xs text-neutral-400">
+            {formatYear(til.data.date)}
+          </div>
+        </div>
+        
+        <!-- Timeline dot -->
+        <div class="absolute left-[-4px] md:left-[92px] top-1.5 w-2 h-2 rounded-full bg-primary-500 ring-4 ring-white"></div>
+        
+        <!-- Content card -->
+        <a href={`/til/${til.slug}`} class="block group">
+          <div class="bg-white rounded-lg border border-neutral-200 p-4 hover:border-primary-300 hover:shadow-sm transition-all">
+            <!-- Mobile date -->
+            <div class="text-xs text-neutral-500 mb-2 md:hidden">
+              {formatDate(til.data.date)}, {formatYear(til.data.date)}
+            </div>
+            
+            <!-- Category badge -->
+            {til.data.category && (
+              <span class={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full mb-2 ${categoryColors[til.data.category] || 'bg-neutral-100 text-neutral-700'}`}>
+                {categoryEmoji[til.data.category]} {til.data.category}
+              </span>
+            )}
+            
+            <!-- Title -->
+            <h3 class="text-base font-semibold text-foreground group-hover:text-primary-600 transition-colors">
+              {til.data.title}
+            </h3>
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+</div>
