@@ -72,6 +72,13 @@ const categoryEmoji: Record<string, string> = {
             <h3 class="text-base font-semibold text-foreground group-hover:text-primary-600 transition-colors">
               {til.data.title}
             </h3>
+            
+            <!-- Source -->
+            {til.data.source && (
+              <div class="mt-2 text-xs text-neutral-400">
+                via <span class="font-medium">{til.data.source}</span>
+              </div>
+            )}
           </div>
         </a>
       </article>

@@ -58,6 +58,11 @@ const categoryEmoji: Record<string, string> = {
               <time class="text-neutral-500" datetime={til.data.date.toISOString()}>
                 {formatDate(til.data.date)}
               </time>
+              {til.data.source && (
+                <span class="text-neutral-400">
+                  · via <span class="font-medium">{til.data.source}</span>
+                </span>
+              )}
             </div>
             
             <h1 class="text-3xl md:text-4xl font-bold text-foreground leading-tight">
