@@ -1,0 +1,171 @@
+---
+import { getCollection } from 'astro:content';
+
+const allTils = await getCollection('til');
+const sortedTils = await Promise.all(
+  allTils
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .map(async (til) => {
+      const { remarkPluginFrontmatter } = await til.render();
+      return { ...til, body: til.body };
+    })
+);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+function formatYear(date: Date) {
+  return date.getFullYear().toString();
+}
+
+const categoryColors: Record<string, string> = {
+  ai: 'bg-purple-100 text-purple-700',
+  coding: 'bg-blue-100 text-blue-700',
+  research: 'bg-green-100 text-green-700',
+  life: 'bg-yellow-100 text-yellow-700',
+  tools: 'bg-orange-100 text-orange-700',
+};
+
+const categoryEmoji: Record<string, string> = {
+  ai: '🤖',
+  coding: '💻',
+  research: '🔬',
+  life: '🌱',
+  tools: '🛠️',
+};
+
+const aiSources = ['neuro', 'kodi', 'claudia'];
+
+function isAiSource(source: string | undefined): boolean {
+  return source ? aiSources.includes(source.toLowerCase()) : false;
+}
+---
+
+<!-- Search/Filter -->
+<div class="mb-8">
+  <div class="relative">
+    <input
+      type="text"
+      id="til-search"
+      placeholder="Filter by title, content, or date..."
+      class="w-full px-4 py-3 pl-10 border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white"
+    />
+    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+    </svg>
+  </div>
+  <p id="til-count" class="mt-2 text-sm text-neutral-500"></p>
+</div>
+
+<div class="relative" id="til-timeline">
+  <!-- Timeline line -->
+  <div class="absolute left-0 md:left-24 top-0 bottom-0 w-px bg-neutral-200"></div>
+  
+  <div class="space-y-8" id="til-items">
+    {sortedTils.map((til) => (
+      <article 
+        class="relative pl-8 md:pl-36 til-item"
+        data-title={til.data.title.toLowerCase()}
+        data-content={til.body.toLowerCase()}
+        data-date={til.data.date.toISOString().split('T')[0]}
+      >
+        <!-- Date badge -->
+        <div class="absolute left-0 md:left-0 top-0 w-20 text-right hidden md:block">
+          <div class="text-sm font-medium text-neutral-600">
+            {formatDate(til.data.date)}
+          </div>
+          <div class="text-xs text-neutral-400">
+            {formatYear(til.data.date)}
+          </div>
+        </div>
+        
+        <!-- Timeline dot -->
+        <div class="absolute left-[-4px] md:left-[92px] top-1.5 w-2 h-2 rounded-full bg-primary-500 ring-4 ring-white"></div>
+        
+        <!-- Content card -->
+        <a href={`/til/${til.slug}`} class="block group">
+          <div class="bg-white rounded-lg border border-neutral-200 p-4 hover:border-primary-300 hover:shadow-sm transition-all">
+            <!-- Mobile date -->
+            <div class="text-xs text-neutral-500 mb-2 md:hidden">
+              {formatDate(til.data.date)}, {formatYear(til.data.date)}
+            </div>
+            
+            <!-- Category badge -->
+            {til.data.category && (
+              <span class={`inline-flex items-center gap-1 px-2 py-0.5 text-xs font-medium rounded-full mb-2 ${categoryColors[til.data.category] || 'bg-neutral-100 text-neutral-700'}`}>
+                {categoryEmoji[til.data.category]} {til.data.category}
+              </span>
+            )}
+            
+            <!-- Title -->
+            <h3 class="text-base font-semibold text-foreground group-hover:text-primary-600 transition-colors">
+              {til.data.title}
+            </h3>
+            
+            <!-- Source -->
+            {til.data.source && (
+              <div class="mt-2 text-xs text-neutral-400 flex items-center gap-1">
+                {isAiSource(til.data.source) ? (
+                  <>
+                    <span class="inline-flex items-center gap-1 px-1.5 py-0.5 bg-neutral-100 rounded text-neutral-500">
+                      <svg class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5A2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5z"/>
+                      </svg>
+                      {til.data.source}
+                    </span>
+                  </>
+                ) : (
+                  <span>by <span class="font-medium">{til.data.source}</span></span>
+                )}
+              </div>
+            )}
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+</div>
+
+<script>
+  const searchInput = document.getElementById('til-search') as HTMLInputElement;
+  const countDisplay = document.getElementById('til-count');
+  const items = document.querySelectorAll('.til-item');
+  const totalCount = items.length;
+
+  function filterItems() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    items.forEach((item) => {
+      const title = item.getAttribute('data-title') || '';
+      const content = item.getAttribute('data-content') || '';
+      const date = item.getAttribute('data-date') || '';
+      
+      const matches = !query || 
+        title.includes(query) || 
+        content.includes(query) || 
+        date.includes(query);
+
+      if (matches) {
+        (item as HTMLElement).style.display = '';
+        visibleCount++;
+      } else {
+        (item as HTMLElement).style.display = 'none';
+      }
+    });
+
+    if (countDisplay) {
+      if (query) {
+        countDisplay.textContent = `Showing ${visibleCount} of ${totalCount} entries`;
+      } else {
+        countDisplay.textContent = '';
+      }
+    }
+  }
+
+  searchInput?.addEventListener('input', filterItems);
+</script>

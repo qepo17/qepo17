@@ -13,4 +13,14 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+const til = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    category: z.enum(['ai', 'coding', 'research', 'life', 'tools']).optional(),
+    source: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, til };
