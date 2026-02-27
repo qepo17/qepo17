@@ -38,9 +38,17 @@ So what does building look like?
 - Ask for changes if needed
 - Tell it to merge
 
-All through chat. Git, commits, PR descriptions — the agent handles it. I just talk.
+All through chat. Git, commits, PR descriptions — the agent handles it. I just talk. I'm a bit surprised at how seamless the flow is. The agent is very smart and can follow instructions perfectly. I rarely got an error or found a case where he misbehaved outside of instructions. I told him to do something, and he can do it. 
 
-I'm impressed.
+"I have an idea to build [a product], please create a plan for it."
+"[Here's the plan]"
+"I think [you should revise this-and-that part]."
+"[Updated the plan]"
+"Ok, looks cool now. Split the feature into smaller tasks. You can create GitHub issues for it."
+"[10 issues created]. Want to do #1 next?"
+"Let's do it."
+
+That's it. Honestly, I'm impressed.
 
 ## Testing It
 
