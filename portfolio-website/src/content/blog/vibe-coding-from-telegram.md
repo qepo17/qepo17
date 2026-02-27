@@ -12,18 +12,23 @@ The stack is Claude Opus running through OpenClaw. I've got a coding agent named
 
 ## What I Built
 
-An income-expense tracker, API and AI-first.
+I built an income-expense tracker with an API and an AI-first approach in mind. I've used a lot of money trackers in the past, but I always had one big problem: manually inputting things. I did it for several months: when I got my salary, I'd input it manually, but then the numbers wouldn't match. That's a whole other headache trying to reconcile everything.
 
-This has been a long problem for me — it's hard to consistently input your income and expenses manually. I did it for several months: when I got my salary, I'd input it manually, but then the numbers were different. That's another headache to reconcile everything. I'm trying to solve that with this personal vibe-coding project.
+Then I tried to automate things using n8n. What I did was connect expense email notifications from my bank to n8n. It looked okay at first, but not in the long run. Sometimes it'd miss one or two transactions. That's another headache to reconcile things (again).
 
-Here's how it works:
+This has been a long-running problem for me. You can't really make it fully automatic, and it's also hard to stay consistent with manual input. I'm trying to solve that with this personal vibe-coding project.
 
-1. Install a SKILL.md (instructions for the agent)
-2. Hand it a bank statement PDF
-3. Agent parses it, hits the Koin API to log transactions
-4. PDF gets deleted after processing
+Here's what I want the workflow to look like:
 
-The data stays in Koin. No files hanging around.
+1. Hand the finance agent a bank statement PDF
+2. Agent parses it, stores the data somewhere to log transactions
+3. PDF gets deleted after processing
+
+The key is that AI parses the data directly from the bank statement PDF every month. With AI capabilities right now, I think it can parse a PDF pretty well. But the next thing I need to do is input that data somewhere, right? So I created the app, Koin. Then the next question becomes: how do I connect the finance agent to the app? SKILLS is the answer.
+
+So the app needs to be API and AI-first.
+
+At the end of the day, the data stays in Koin. The agent only helps parse the data and send it to the app — no files hang around.
 
 ## The Workflow
 
@@ -38,15 +43,21 @@ So what does building look like?
 - Ask for changes if needed
 - Tell it to merge
 
-All through chat. Git, commits, PR descriptions — the agent handles it. I just talk. I'm a bit surprised at how seamless the flow is. The agent is very smart and can follow instructions perfectly. I rarely got an error or found a case where he misbehaved outside of instructions. I told him to do something, and he can do it. 
+All through chat. Git, commits, PR descriptions — the agent handles it: I just talk. I'm a bit surprised at how seamless the flow is. The agent is very smart and can follow instructions perfectly. I rarely got an error or found a case where he misbehaved outside of instructions. I told him to do something, and he can do it. 
 
-"I have an idea to build [a product], please create a plan for it."
-"[Here's the plan]"
-"I think [you should revise this-and-that part]."
-"[Updated the plan]"
-"Ok, looks cool now. Split the feature into smaller tasks. You can create GitHub issues for it."
-"[10 issues created]. Want to do #1 next?"
-"Let's do it."
+🧑 "I have an idea to build [a product], please create a plan for it."
+
+🤖 "[Here's the plan]"
+
+🧑 "I think [you should revise this-and-that part]."
+
+🤖 "[Updated the plan]"
+
+🧑 "Ok, looks cool now. Split the feature into smaller tasks. You can create GitHub issues for it."
+
+🤖 "[10 issues created]. Want to do #1 next?"
+
+🧑 "Let's do it."
 
 That's it. Honestly, I'm impressed.
 
