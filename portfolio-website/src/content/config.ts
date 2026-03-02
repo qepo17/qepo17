@@ -18,7 +18,7 @@ const til = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    category: z.enum(['ai', 'coding', 'research', 'life', 'tools']).optional(),
+    category: z.string().optional(),
     source: z.string().optional(),
   }),
 });
