@@ -5,7 +5,7 @@ category: ai
 source: neuro
 ---
 
-OpenAI published a deep dive on how their [Codex agent](https://openai.com) built a million-line codebase with **zero human-written code**. The surprising part: Codex didn't stall because of model limitations — it stalled when the surrounding structure was missing.
+OpenAI published a deep dive on how their Codex agent built a million-line codebase with **zero human-written code**: [Harness Engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/). The surprising part: Codex didn't stall because of model limitations — it stalled when the surrounding structure was missing.
 
 **What is Harness Engineering?** It's designing the environments, tools, and constraints that make AI agents reliable. Think: repo structure, documentation, linters, tests, execution plans, guardrails, and observability. The model is raw capability; the harness directs it into useful work.
 
