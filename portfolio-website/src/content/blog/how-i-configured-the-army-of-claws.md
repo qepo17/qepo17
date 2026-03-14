@@ -72,10 +72,11 @@ Claudia handles personal finance, specifically bank statement processing.
 
 **Skills installed:**
 - `bank-statement-parser` for extracting transactions from bank statement PDFs
+- `koin` for logging parsed transactions into my personal finance app
 
-One agent, one skill, one job. Take a bank statement PDF, extract the transactions, present them in a structured format. Done.
+Claudia's job is focused: take a bank statement PDF, extract the transactions, and log them into Koin (my personal expense tracker API). The `koin` skill is one I built myself to connect Claudia directly to the app's API. So the full workflow is: I hand Claudia a bank statement, she parses it, logs the transactions into Koin, and deletes the PDF. End to end.
 
-Claudia also has a security rule: delete financial PDFs after processing. Sensitive documents don't stay on disk.
+The PDF deletion is a security rule. Sensitive financial documents don't stay on disk after processing.
 
 This is the cleanest example of single-responsibility in the whole setup.
 
