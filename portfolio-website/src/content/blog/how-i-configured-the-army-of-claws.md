@@ -107,7 +107,9 @@ Two skills. Code needs a way to interact with repositories and a way to interact
 
 Kodi is direct and practical. Creates feature branches, writes tests, opens PRs, never pushes to main directly. The discipline is baked into the agent's personality file.
 
-I fully built [Koin](https://github.com/qepo17/koin) (my personal finance API) through Telegram. I just told Kodi to do things: add this endpoint, write tests for that, fix this bug. Kodi would create a branch, write the code, run the tests, and open a PR. I reviewed and merged from my phone.
+I have personal needs that off-the-shelf apps don't fully solve, and Kodi helps me build the apps I actually want. I built [Koin](https://github.com/qepo17/koin) for personal finance management, fully through Telegram. I just told Kodi to do things: add this endpoint, write tests for that, fix this bug. Kodi would create a branch, write the code, run the tests, and open a PR. I reviewed and merged from my phone. I also built the Cuan app for stock portfolio management, and I use Kodi to update this portfolio website you're reading right now.
+
+Because these apps are built for me, they fit exactly how I work. No unnecessary features, no compromises. It makes managing my finances, investments, and online presence easier because everything is personalized. And having Kodi handle the development means I'm way more productive than if I had to sit down and code everything myself.
 
 This blog post was also written and PR'd by Kodi.
 
