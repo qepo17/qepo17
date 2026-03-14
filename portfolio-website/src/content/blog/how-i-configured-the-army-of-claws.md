@@ -149,13 +149,6 @@ Two settings keep conversations efficient:
 
 I also run the **Lossless Claw** plugin for lossless context management. Compacted context can be expanded back on demand, so nothing is permanently lost.
 
-### Concurrency
-
-- Max concurrent sessions per agent: 4
-- Max concurrent sub-agents: 8
-
-Agents can spawn sub-tasks without blocking their main conversation, and the system won't consume unbounded resources.
-
 ## Why Single-Responsibility Agents?
 
 The philosophy is borrowed from software engineering: the Single Responsibility Principle.
