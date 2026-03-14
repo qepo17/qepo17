@@ -6,9 +6,7 @@ heroImage: '/assets/images/posts/openclaw.png'
 tags: ['ai', 'openclaw', 'agents', 'workflow', 'automation']
 ---
 
-I got tired of using one AI for everything. You ask it to check stock prices, then parse a bank statement, then debug some code. The context gets muddled. The assistant tries to do everything and does none of it well.
-
-So I built something different with [OpenClaw](https://openclaw.ai): five specialized agents, each with their own domain, workspace, and tools.
+I run five AI agents on a single server. Each one has a name, a personality, and a specific job. Here's how I set it up with [OpenClaw](https://openclaw.ai).
 
 ## The Architecture: One Gateway, Five Agents
 
