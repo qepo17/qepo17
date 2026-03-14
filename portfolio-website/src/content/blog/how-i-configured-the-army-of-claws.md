@@ -140,18 +140,6 @@ Each agent has its own workspace directory containing their `SOUL.md` (personali
 3. **Security.** Claudia's financial documents are walled off from other agents.
 4. **Independent tuning.** I can adjust each agent's personality without affecting the others.
 
-### Model Fallbacks
-
-All agents share the same fallback chain:
-
-```
-Primary:    Claude Opus 4
-Fallback 1: Claude Sonnet 4
-Fallback 2: Claude Haiku 3.5
-```
-
-If Opus goes down, agents degrade gracefully to Sonnet, then Haiku. The system keeps running.
-
 ### Context Management
 
 Two settings keep conversations efficient:
