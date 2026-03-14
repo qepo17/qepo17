@@ -107,7 +107,9 @@ Two skills. Code needs a way to interact with repositories and a way to interact
 
 Kodi is direct and practical. Creates feature branches, writes tests, opens PRs, never pushes to main directly. The discipline is baked into the agent's personality file.
 
-This blog post was written and PR'd by Kodi.
+I fully built [Koin](https://github.com/qepo17/koin) (my personal finance API) through Telegram. I just told Kodi to do things: add this endpoint, write tests for that, fix this bug. Kodi would create a branch, write the code, run the tests, and open a PR. I reviewed and merged from my phone.
+
+This blog post was also written and PR'd by Kodi.
 
 ## The Telegram Setup: One Group, Five Topics
 
