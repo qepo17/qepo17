@@ -2,7 +2,7 @@
 title: 'How I Configured the Army of Claws'
 description: A deep dive into building a multi-agent AI system with OpenClaw, where every agent has a name, a soul, and a job to do.
 pubDate: 2026-03-14T00:00:00Z
-heroImage: '/assets/images/posts/openclaw.png'
+heroImage: '/assets/images/posts/army-of-claws.jpg'
 tags: ['ai', 'openclaw', 'agents', 'workflow', 'automation']
 ---
 
