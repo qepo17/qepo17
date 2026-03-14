@@ -149,23 +149,23 @@ Two settings keep conversations efficient:
 
 I also run the **Lossless Claw** plugin for lossless context management. Compacted context can be expanded back on demand, so nothing is permanently lost.
 
-## Why Single-Responsibility Agents?
+## Why Isolate Each Agent?
 
-The philosophy is borrowed from software engineering: the Single Responsibility Principle.
+The reason I split things into separate agents is context. When an AI has too much context, it gets polluted. It starts mixing things up, losing focus, giving worse answers.
 
-A class should have one reason to change. An agent should have one domain to master.
+Each agent in OpenClaw has a SOUL.md (personality), MEMORY.md (long-term memory), skills, and project files. All of that goes into the context window. If one agent carried everything, it would be juggling investment memories, bank statement workflows, coding project states, and research notes all at once. That's a lot of noise.
 
-When Cuan only thinks about stocks, its workspace memory is entirely investment context. Its skills are entirely market-relevant. There's no context switching between stock analysis and TypeScript debugging.
+By isolating each agent to one specialty, everything in its context is relevant. When Cuan thinks about stocks, its memory is entirely about investments. Its skills are all market-related. There's no coding project state or bank statement workflow getting in the way. The agent excels at its job because it only knows about its job.
 
-The benefits:
+The practical benefits:
 
-1. **Better context utilization.** Every token of memory is domain-relevant.
-2. **Cleaner personalities.** Each SOUL.md is tuned for one role.
-3. **Easier debugging.** Stock analysis wrong? Check Cuan. Code broken? Check Kodi.
-4. **Security boundaries.** Financial data stays with the finance agent.
+1. **Clean context.** Every token of memory, every skill, every personality trait is relevant to the task.
+2. **Better answers.** Less noise in context means the agent performs better at its specialty.
+3. **Easier debugging.** Stock analysis wrong? Check Cuan. Code broken? Check Kodi. I know exactly where to look.
+4. **Security.** Financial data stays with the finance agent. It doesn't leak into other contexts.
 5. **Parallel work.** Neuro can research while Kodi writes code at the same time.
 
-The only agent that breaks this rule is Kai, and that's intentional. Every team needs a generalist for the things that don't fit neatly into a box.
+The only agent that doesn't follow this is Kai, and that's intentional. Every team needs a generalist for the things that don't fit into a specific domain.
 
 ## The Result
 
