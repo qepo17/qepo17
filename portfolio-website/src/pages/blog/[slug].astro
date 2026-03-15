@@ -42,7 +42,7 @@ function formatDate(date: Date) {
               ))}
             </div>
             
-            <h1 class="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               {post.data.title}
             </h1>
             
@@ -61,7 +61,7 @@ function formatDate(date: Date) {
             </div>
             
             {post.data.heroImage && (
-              <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg overflow-hidden mb-8">
+              <div class="aspect-[4/3] sm:aspect-video bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg overflow-hidden mb-8">
                 <img 
                   src={post.data.heroImage} 
                   alt={post.data.title}
@@ -79,7 +79,7 @@ function formatDate(date: Date) {
                       prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700
                       prose-strong:text-foreground prose-strong:font-semibold
                       prose-code:text-primary-600 prose-code:bg-neutral-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm
-                      prose-pre:bg-neutral-900 prose-pre:text-neutral-100
+                      prose-pre:bg-neutral-900 prose-pre:text-neutral-100 prose-pre:overflow-x-auto
                       prose-blockquote:border-l-primary-500 prose-blockquote:bg-primary-50 prose-blockquote:py-1
                       prose-ul:text-neutral-700 prose-ol:text-neutral-700
                       prose-li:text-neutral-700">
