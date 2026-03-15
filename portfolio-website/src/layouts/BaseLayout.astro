@@ -41,8 +41,33 @@ const { title, description = "Senior Software Engineer with experience in big-sc
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Prose table overflow fix — wrap tables in scrollable container */
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prose code block overflow fix */
+  .prose pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .prose code {
+    word-break: break-word;
+  }
+
+  /* Prevent any prose child from blowing out the container */
+  .prose img,
+  .prose video,
+  .prose iframe {
+    max-width: 100%;
+    height: auto;
   }
 </style>
