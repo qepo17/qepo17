@@ -17,7 +17,7 @@ OpenClaw runs as a single gateway on my server. Behind it sit five agents, each 
 - Their own skills (tools tailored to their role)
 - Their own Telegram bot (separate bot token, separate conversations)
 
-All five share the same base model, Claude Opus 4, but what makes them different is everything around the model: the context they carry, the tools they have access to, and the personality they're given.
+All five share the same base model, Claude Opus 4.x, but what makes them different is everything around the model: the context they carry, the tools they have access to, and the personality they're given.
 
 Here's the lineup:
 
