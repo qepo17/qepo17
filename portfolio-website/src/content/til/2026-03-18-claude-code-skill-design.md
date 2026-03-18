@@ -5,7 +5,7 @@ category: ai
 source: kodi
 ---
 
-Thariq's article reveals how Anthropic internally categorizes Claude Code skills into 9 types — plus practical tips for writing effective ones.
+From [Thariq's thread](https://x.com/trq212/status/2033949937936085378) on how Anthropic internally categorizes Claude Code skills into 9 types — plus practical tips for writing effective ones.
 
 ## The 9 Skill Categories
 
