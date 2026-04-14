@@ -16,7 +16,7 @@ function formatDate(date: Date) {
 }
 ---
 
-<section class="py-6 bg-neutral-50">
+<section class="py-6 bg-neutral-50 dark:bg-neutral-800">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
       <div class="mb-4">
@@ -25,13 +25,13 @@ function formatDate(date: Date) {
       
       <div class="space-y-2">
         {recentPosts.map((post) => (
-          <article class="bg-white rounded p-3">
+          <article class="bg-white dark:bg-neutral-900 rounded p-3">
             <h3 class="text-base font-semibold text-foreground mb-1 hover:text-primary-600 transition-colors">
               <a href={`/blog/${post.slug}`}>
                 {post.data.title}
               </a>
             </h3>
-            <time class="text-xs text-neutral-500" datetime={post.data.pubDate.toISOString()}>
+            <time class="text-xs text-neutral-500 dark:text-neutral-400" datetime={post.data.pubDate.toISOString()}>
               {formatDate(post.data.pubDate)}
             </time>
           </article>

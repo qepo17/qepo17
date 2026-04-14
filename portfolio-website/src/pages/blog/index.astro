@@ -21,15 +21,15 @@ function formatDate(date: Date) {
 <BaseLayout title="Blog - Taufiq Septryana" description="Thoughts on software engineering, scaling systems, and lessons learned from building products">
   <Header />
   
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-white dark:bg-neutral-900">
     <!-- Hero Section -->
-    <section class="py-20 bg-gradient-to-br from-background to-neutral-50">
+    <section class="py-20 bg-gradient-to-br from-background to-neutral-50 dark:to-neutral-800">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center">
           <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
             Blog
           </h1>
-          <p class="text-xl text-neutral-600 mb-8 max-w-2xl mx-auto">
+          <p class="text-xl text-neutral-600 dark:text-neutral-400 mb-8 max-w-2xl mx-auto">
             Thoughts on software engineering, scaling systems, and lessons learned from building products that serve millions of users.
           </p>
         </div>
@@ -46,7 +46,7 @@ function formatDate(date: Date) {
                 <div class="flex flex-col lg:flex-row gap-8">
                   {/* Featured Image */}
                   <div class="lg:w-1/3">
-                    <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg overflow-hidden">
+                    <div class="aspect-video bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900/40 dark:to-primary-800/40 rounded-lg overflow-hidden">
                       {post.data.heroImage ? (
                         <img 
                           src={post.data.heroImage} 
@@ -54,7 +54,7 @@ function formatDate(date: Date) {
                           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
-                        <div class="w-full h-full flex items-center justify-center text-primary-600 text-4xl">
+                        <div class="w-full h-full flex items-center justify-center text-primary-600 dark:text-primary-400 text-4xl">
                           📝
                         </div>
                       )}
@@ -65,7 +65,7 @@ function formatDate(date: Date) {
                   <div class="lg:w-2/3">
                     <div class="flex flex-wrap gap-2 mb-3">
                       {post.data.tags.map((tag) => (
-                        <span class="px-3 py-1 bg-primary-50 text-primary-600 text-sm font-medium rounded-full">
+                        <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-medium rounded-full">
                           {tag}
                         </span>
                       ))}
@@ -77,12 +77,12 @@ function formatDate(date: Date) {
                       </a>
                     </h2>
                     
-                    <p class="text-neutral-600 mb-6 text-lg leading-relaxed">
+                    <p class="text-neutral-600 dark:text-neutral-400 mb-6 text-lg leading-relaxed">
                       {post.data.description}
                     </p>
                     
                     <div class="flex items-center justify-between">
-                      <time class="text-neutral-500" datetime={post.data.pubDate.toISOString()}>
+                      <time class="text-neutral-500 dark:text-neutral-400" datetime={post.data.pubDate.toISOString()}>
                         {formatDate(post.data.pubDate)}
                       </time>
                       <a 
@@ -105,7 +105,7 @@ function formatDate(date: Date) {
             <div class="text-center py-16">
               <div class="text-6xl mb-4">📝</div>
               <h2 class="text-2xl font-bold text-foreground mb-4">No posts yet</h2>
-              <p class="text-neutral-600">Check back soon for new content!</p>
+              <p class="text-neutral-600 dark:text-neutral-400">Check back soon for new content!</p>
             </div>
           )}
         </div>
