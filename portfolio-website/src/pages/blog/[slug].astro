@@ -27,7 +27,7 @@ function formatDate(date: Date) {
 <BaseLayout title={post.data.title} description={post.data.description}>
   <Header />
   
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-white dark:bg-neutral-900">
     <!-- Article Header -->
     <article class="py-20">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -36,7 +36,7 @@ function formatDate(date: Date) {
           <div class="mb-8">
             <div class="flex flex-wrap gap-2 mb-4">
               {post.data.tags.map((tag) => (
-                <span class="px-3 py-1 bg-primary-50 text-primary-600 text-sm font-medium rounded-full">
+                <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-medium rounded-full">
                   {tag}
                 </span>
               ))}
@@ -46,7 +46,7 @@ function formatDate(date: Date) {
               {post.data.title}
             </h1>
             
-            <div class="flex items-center text-neutral-600 mb-8">
+            <div class="flex items-center text-neutral-600 dark:text-neutral-400 mb-8">
               <time datetime={post.data.pubDate.toISOString()}>
                 {formatDate(post.data.pubDate)}
               </time>
@@ -61,7 +61,7 @@ function formatDate(date: Date) {
             </div>
             
             {post.data.heroImage && (
-              <div class="aspect-[4/3] sm:aspect-video bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg overflow-hidden mb-8">
+              <div class="aspect-[4/3] sm:aspect-video bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900/40 dark:to-primary-800/40 rounded-lg overflow-hidden mb-8">
                 <img 
                   src={post.data.heroImage} 
                   alt={post.data.title}
@@ -72,22 +72,22 @@ function formatDate(date: Date) {
           </div>
           
           <!-- Article Content -->
-          <div class="prose prose-lg prose-neutral max-w-none
+          <div class="prose prose-lg prose-neutral dark:prose-invert max-w-none
                       prose-headings:text-foreground prose-headings:font-bold
                       prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl
-                      prose-p:text-neutral-700 prose-p:leading-relaxed
-                      prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700
+                      prose-p:text-neutral-700 dark:prose-p:text-neutral-300 prose-p:leading-relaxed
+                      prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:text-primary-700 dark:hover:prose-a:text-primary-300
                       prose-strong:text-foreground prose-strong:font-semibold
-                      prose-code:text-primary-600 prose-code:bg-neutral-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm
+                      prose-code:text-primary-600 dark:prose-code:text-primary-400 prose-code:bg-neutral-100 dark:prose-code:bg-neutral-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm
                       prose-pre:bg-neutral-900 prose-pre:text-neutral-100 prose-pre:overflow-x-auto
-                      prose-blockquote:border-l-primary-500 prose-blockquote:bg-primary-50 prose-blockquote:py-1
-                      prose-ul:text-neutral-700 prose-ol:text-neutral-700
-                      prose-li:text-neutral-700">
+                      prose-blockquote:border-l-primary-500 prose-blockquote:bg-primary-50 dark:prose-blockquote:bg-primary-900/30 prose-blockquote:py-1
+                      prose-ul:text-neutral-700 dark:prose-ul:text-neutral-300 prose-ol:text-neutral-700 dark:prose-ol:text-neutral-300
+                      prose-li:text-neutral-700 dark:prose-li:text-neutral-300">
             <Content />
           </div>
           
           <!-- Back to blog -->
-          <div class="mt-16 pt-8 border-t border-neutral-200">
+          <div class="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-700">
             <a 
               href="/blog"
               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors"

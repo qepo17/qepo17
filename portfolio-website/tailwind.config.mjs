@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       colors: {
         // Dayfox theme colors
-        background: '#f5f5f0',
-        foreground: '#3c3836',
+        background: 'var(--color-background)',
+        foreground: 'var(--color-foreground)',
         primary: {
           50: '#f0fdfc',
           100: '#ccfbf1',

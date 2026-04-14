@@ -24,11 +24,11 @@ function formatDate(date: Date) {
 }
 
 const categoryColors: Record<string, string> = {
-  ai: 'bg-purple-100 text-purple-700',
-  coding: 'bg-blue-100 text-blue-700',
-  research: 'bg-green-100 text-green-700',
-  life: 'bg-yellow-100 text-yellow-700',
-  tools: 'bg-orange-100 text-orange-700',
+  ai: 'bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300',
+  coding: 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300',
+  research: 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300',
+  life: 'bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300',
+  tools: 'bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300',
 };
 
 const categoryEmoji: Record<string, string> = {
@@ -49,7 +49,7 @@ function isAiSource(source: string | undefined): boolean {
 <BaseLayout title={til.data.title} description={`TIL: ${til.data.title}`}>
   <Header />
   
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-white dark:bg-neutral-900">
     <article class="py-20">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
@@ -57,23 +57,23 @@ function isAiSource(source: string | undefined): boolean {
           <div class="mb-8">
             <div class="flex flex-wrap items-center gap-3 mb-4">
               {til.data.category && (
-                <span class={`inline-flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-full ${categoryColors[til.data.category] || 'bg-neutral-100 text-neutral-700'}`}>
+                <span class={`inline-flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-full ${categoryColors[til.data.category] || 'bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300'}`}>
                   {categoryEmoji[til.data.category]} {til.data.category}
                 </span>
               )}
-              <time class="text-neutral-500" datetime={til.data.date.toISOString()}>
+              <time class="text-neutral-500 dark:text-neutral-400" datetime={til.data.date.toISOString()}>
                 {formatDate(til.data.date)}
               </time>
               {til.data.source && (
                 isAiSource(til.data.source) ? (
-                  <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-neutral-100 rounded text-neutral-500 text-sm">
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 bg-neutral-100 dark:bg-neutral-700 rounded text-neutral-500 dark:text-neutral-400 text-sm">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5A2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5z"/>
                     </svg>
                     {til.data.source}
                   </span>
                 ) : (
-                  <span class="text-neutral-400">
+                  <span class="text-neutral-400 dark:text-neutral-500">
                     · by <span class="font-medium">{til.data.source}</span>
                   </span>
                 )
@@ -86,20 +86,20 @@ function isAiSource(source: string | undefined): boolean {
           </div>
           
           <!-- Content -->
-          <div class="prose prose-lg prose-neutral max-w-none
+          <div class="prose prose-lg prose-neutral dark:prose-invert max-w-none
                       prose-headings:text-foreground prose-headings:font-bold
-                      prose-p:text-neutral-700 prose-p:leading-relaxed
-                      prose-a:text-primary-600 prose-a:no-underline hover:prose-a:text-primary-700
+                      prose-p:text-neutral-700 dark:prose-p:text-neutral-300 prose-p:leading-relaxed
+                      prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:text-primary-700 dark:hover:prose-a:text-primary-300
                       prose-strong:text-foreground prose-strong:font-semibold
-                      prose-code:text-primary-600 prose-code:bg-neutral-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm
+                      prose-code:text-primary-600 dark:prose-code:text-primary-400 prose-code:bg-neutral-100 dark:prose-code:bg-neutral-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm
                       prose-pre:bg-neutral-900 prose-pre:text-neutral-100 prose-pre:overflow-x-auto
-                      prose-ul:text-neutral-700 prose-ol:text-neutral-700
-                      prose-li:text-neutral-700">
+                      prose-ul:text-neutral-700 dark:prose-ul:text-neutral-300 prose-ol:text-neutral-700 dark:prose-ol:text-neutral-300
+                      prose-li:text-neutral-700 dark:prose-li:text-neutral-300">
             <Content />
           </div>
           
           <!-- Back link -->
-          <div class="mt-12 pt-8 border-t border-neutral-200">
+          <div class="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-700">
             <a 
               href="/til"
               class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-colors"

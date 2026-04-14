@@ -15,7 +15,18 @@ const { title, description = "Senior Software Engineer with experience in big-sc
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-    
+
+    <!-- Theme: prevent flash -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XM31WFP1B8"></script>
     <script>
@@ -40,6 +51,16 @@ const { title, description = "Senior Software Engineer with experience in big-sc
 <style is:global>
   html {
     scroll-behavior: smooth;
+  }
+
+  :root {
+    --color-background: #f5f5f0;
+    --color-foreground: #3c3836;
+  }
+
+  .dark {
+    --color-background: #1c1917;
+    --color-foreground: #f5f5f0;
   }
 
   body {
